@@ -194,3 +194,38 @@ jobs:
           name: ${{ env.TAG_NAME }}
           pattern: artifact-*
           delete-merged: true
+
+      - name: Set output tag name
+        id: set_output
+        run: echo "tag_name=${{ env.TAG_NAME }}" >> $GITHUB_OUTPUT
+
+    outputs:
+      TAG_NAME: ${{ steps.set_output.outputs.tag_name }}
+
+  create_release:
+    runs-on: ubuntu-latest
+    needs: merge
+    permissions:
+      contents: write
+    steps:
+      - name: Download merged artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.merge.outputs.TAG_NAME }}
+          path: release-assets
+
+      - name: List downloaded files
+        run: ls -R release-assets
+
+      - name: Create zip file
+        run: |
+          mkdir -p zipped
+          zip -r "zipped/${{ needs.merge.outputs.TAG_NAME }}.zip" release-assets/*
+
+      - name: Upload zipped artifact to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ needs.merge.outputs.TAG_NAME }}
+          files: zipped/${{ needs.merge.outputs.TAG_NAME }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

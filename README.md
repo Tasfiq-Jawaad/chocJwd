@@ -1,4 +1,4 @@
-# chocJwd: A wearable split ergonomic staggered ortholinear mechanical keyboard with tenting support and armrest
+# chocJwd: A wearable split mechanical keyboard project
 
 ## Overview
 

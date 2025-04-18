@@ -9,10 +9,9 @@ name: Build ZMK firmware
 
 on:
   push:
-    tags:
-      - "chocjwd_v*"
     paths:
       - "zmk-config/**"
+      - ".github/workflows/**"
   workflow_dispatch:
 
 env:

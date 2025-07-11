@@ -21,8 +21,12 @@ All the components such as diodes, hot swat sockets (for the keys), the power bu
 
 Diodes were the smallest component in this project. However, I found it to be the easiest to solder. I started by adding a little bit of flux and a little blob of solder and placed one end of the diode and pressed down using the soldering iron. Afterwards I put a little bit of solder on the tip of my soldering iron and again, pressed down to finish the solder.
 
-![soldering diodes](./images/soldering_diode.gif)
+<p align="center">
+  <img width="500" height="500" alt="soldering diodes" src="./images/soldering_diode.gif" />
+</p>
 
 However, I did make some mistakes sometimes - soldering it the wrong way as you can see in the example above. In such situation I tried desoldering using solder wick but I couldn't manage to desolder so I used the trusty soldering iron to heat up the solder until it came lose and fixed the orientation of the diode.
 
-![desoldering diodes](./images/desoldering_diode.gif)
+<p align="center">
+  <img width="500" height="500" alt="desoldering diodes" src="./images/desoldering_diode.gif" />
+</p>
